@@ -2,10 +2,67 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>homepage</title>
+	<title>fullpage</title>
+	<link rel="stylesheet" href="css/160407style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.8/jquery.fullPage.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.8/jquery.fullPage.min.js"></script>
+
 </head>
 <body>
-	<div>은혜 홈페이지</div>
-	<img src="img/4.jpg" alt="">
+	<div id="fPage">
+		<div class="section sec0"></div>
+		<div class="section sec1"></div>
+		<div class="section sec2"></div>
+		<div class="section sec3"></div>
+		<div class="section sec4"></div>
+	</div>
+	<ul class="menu">
+		<li><a href="#">섹션 0</a></li>
+		<li><a href="#">섹션 1</a></li>
+		<li><a href="#">섹션 2</a></li>
+		<li><a href="#">섹션 3</a></li>
+		<li><a href="#">섹션 4</a></li>
+	</ul>
+
+	<script>
+	$(function(){
+		$('#fPage').fullpage({
+			 navigation:true
+		});
+
+		$('.menu a').each(function(i){
+			$(this).click(function(){
+				$('#fp-nav a').eq(i).trigger('click')
+			})
+		})  /*each를 이용하여 반복문 적용, 이방법을 쓰는게 좋다.*/
+
+
+
+		/* 
+		$('.menu a').on('click',function(){
+			idx=$('.menu a').index($(this)); 몇번째 메뉴를 클릭할지 모르기 때문에, 인덱스 값을 계산한 만큼의 시간이 소요된다.
+			$('#fp-nav a').eq(idx).trigger('click')
+		}) 
+		=>trigger를 적용하여 간소화 한거 */
+
+
+		/* 
+		$('.menu a').eq(0).on('click',function(){
+			$('#fp-nav a').eq(0).trigger('click')
+		$('.menu a').eq(1).on('click',function(){
+			$('#fp-nav a').eq(1).trigger('click')
+		$('.menu a').eq(2).on('click',function(){
+			$('#fp-nav a').eq(2).trigger('click')
+		$('.menu a').eq(3).on('click',function(){
+			$('#fp-nav a').eq(3).trigger('click')
+		$('.menu a').eq(4).on('click',function(){
+			$('#fp-nav a').eq(4).trigger('click')
+		}) 
+		일반적인 명령*/ 
+	})
+
+
+	</script>
 </body>
 </html>
